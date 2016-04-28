@@ -70,7 +70,7 @@ gulp.task('watch', function () {
 
   gulp.watch(paths.js, ['lint']);
 
-  gulp.watch('task_*/**/*', function(){
+  gulp.watch('task-*/**/*', function(){
     browserSync.reload();
   });
 });

@@ -1,0 +1,42 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead {
+  background-color: #000;
+  color: #fff;
+}
+
+tr {
+  height: 30px;
+  text-align: center;
+}
+
+th {
+  border: 1px solid #000;
+}
+
+td {
+  border: 1px solid;
+}
+
+.arrow {
+  float: right;
+  margin-right: 5px;
+}
+
+.up-arrow, .down-arrow {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  cursor: pointer;
+}
+
+.up-arrow {
+  border-bottom: 5px solid;
+  margin-bottom: 8px;
+}
+
+.down-arrow {
+  border-top: 5px solid;
+}

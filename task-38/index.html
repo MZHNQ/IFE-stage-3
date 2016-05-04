@@ -4,42 +4,37 @@
   <meta charset="UTF-8">
   <title>Task 38</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /*.main {
+    }
+    #table-container {
+      border: 1px solid;
+    }*/
+  </style>
 </head>
 <body>
-  <!-- <table>
-    <thead>
-      <tr>
-        <th>姓名</th>
-        <th>语文<div class="arrow"><div class="up-arrow"></div><div class="down-arrow"></div></div></th>
-        <th>数学<div class="arrow"><div class="up-arrow"></div><div class="down-arrow"></div></div></th>
-        <th>英语<div class="arrow"><div class="up-arrow"></div><div class="down-arrow"></div></div></th>
-        <th>总分<div class="arrow"><div class="up-arrow"></div><div class="down-arrow"></div></div></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>小明</td>
-        <td>80</td>
-        <td>90</td>
-        <td>70</td>
-        <td>240</td>
-      </tr>
-      <tr>
-        <td>小红</td>
-        <td>90</td>
-        <td>60</td>
-        <td>90</td>
-        <td>240</td>
-      </tr>
-      <tr>
-        <td>小亮</td>
-        <td>60</td>
-        <td>100</td>
-        <td>70</td>
-        <td>230</td>
-      </tr>
-    </tbody>
-  </table> -->
+  <div class="main">
+    <h1>表格组件</h1>
+    <p>表格接口为 createTable(data, option)，option 中 selector 一项必需填写，用于选择渲染表格的容器。</p>
+    <p>表格的宽度完全由容器宽度决定。</p>
+    <h2>功能完整的表格</h2>
+    <p>分数列有排序功能，自动计算总分，默认按总分排序从高到低排序，首行冻结。</p>
+    <div id="complete"></div>
+    <h2>普通表格</h2>
+    <p>未进行任何功能配置，直接由数据渲染。</p>
+    <div id="normal"></div>
+    <h2>改变容器的宽度来限制表格的宽度</h2>
+    <p>容器宽度为 500px。</p>
+    <div id="width" style="width: 500px;"></div>
+    <h2>带总分的表格</h2>
+    <div id="total"></div>
+    <h2>按总分排序的表格</h2>
+    <div id="sort"></div>
+    <h2>具有排序功能的表格</h2>
+    <p>默认按可排序的第一列由高至低排序。</p>
+    <div id="sortable"></div>
+  </div>
+  <script src="tableComponent.js"></script>
   <script src="task.js"></script>
 </body>
 </html>

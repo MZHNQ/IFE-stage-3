@@ -18,6 +18,40 @@
     }
   };
 
+  function getType ( variable ) {
+    return Object.prototype.toString.call(variable).match(/\s(.+)\]/)[1].toLowerCase();
+  }
+
+  function cloneObject ( src ) {
+    if ( src === undefined ) return src;
+    var srcType = getType(src);
+    var typeList = ['string', 'boolean', 'number'];
+    var result;
+    for (var i=0, l=typeList.length; i<l; i++) {
+      if (srcType === typeList[i]) return src;
+    }
+    switch ( srcType ) {
+      case "array":
+        result = [];
+        src.forEach(function(el){
+            result.push(cloneObject(el));
+        });
+        break;
+      case "date":
+        result = new Date(src);
+        break;
+      case "object":
+        result = {};
+        for (var name in src) {
+            result[name] = cloneObject(src[name]);
+        }
+        break;
+      default:
+        result = src;
+    }
+    return result;
+  }
+
   function freezeElement (element) {
     var parent = element.parentElement;
     var top = offsetTop(element);
@@ -76,7 +110,7 @@
 
   // Model
   function TableModel (data, totalName) {
-    this.source = data;
+    this.source = cloneObject(data);
     this.data = this.getData(totalName);
     this.header = this.getHeader();
   }
@@ -150,7 +184,7 @@
   };
 
   // Component 
-  function TableComponent (option) {
+  function TableComponent (data,  option) {
     this.model = option.model;
     this.view = option.view;
     this.header = this.formatHeader(option.sortableHeader);
@@ -333,6 +367,6 @@
         opt[i] = option[i];
       }
     }
-    return new TableComponent(opt);
+    return new TableComponent(data, opt);
   };
 })();

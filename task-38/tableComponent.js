@@ -185,8 +185,8 @@
 
   // Component 
   function TableComponent (data,  option) {
-    this.model = new TableModel(data, option.total);
-    this.view = new TableView();
+    this.model = option.model;
+    this.view = option.view;
     this.header = this.formatHeader(option.sortableHeader);
     this.container = document.querySelector(option.selector);
     this.freezeHeader = option.freezeHeader;
@@ -353,8 +353,8 @@
   window.createTable = function (data, option) {
     var opt = {
       selector: 'body',
-      // model: new TableModel(data, option.total),
-      // view: new TableView(),
+      model: new TableModel(data, option.total),
+      view: new TableView(),
       sortableHeader: [],
       freezeHeader: false,
       total: '',
